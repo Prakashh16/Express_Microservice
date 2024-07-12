@@ -1,0 +1,14 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "database_encryption.sqlite"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "database_encryption_test.sqlite"
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "database_encryption_production.sqlite"
+  }
+}
