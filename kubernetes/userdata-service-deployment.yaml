@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userdata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userdata
+  template:
+    metadata:
+      labels:
+        app: userdata
+    spec:
+      containers:
+        - name: userdata
+          image: prakashh16/node-application-userdata_service:latest
+          ports:
+            - containerPort: 3005
+          env:
+            - name: DATABASE_URL
+              value: "sqlite:///app/database_userdata.sqlite"
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
+            requests:
+              cpu: "0.1"
+              memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: userdata-service
+spec:
+  selector:
+    app: userdata-service
+  ports:
+    - protocol: TCP
+      port: 3005
+      targetPort: 3005
+      nodePort: 31005
+  type: NodePort

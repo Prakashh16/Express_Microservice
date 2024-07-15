@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: encryption
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: encryption
+  template:
+    metadata:
+      labels:
+        app: encryption
+    spec:
+      containers:
+        - name: encryption
+          image: prakashh16/node-application-encryption_service:latest
+          ports:
+            - containerPort: 3003
+          env:
+            - name: DATABASE_URL
+              value: "sqlite:///app/database_encryption.sqlite"
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
+            requests:
+              cpu: "0.1"
+              memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: encryption-service
+spec:
+  selector:
+    app: encryption-service
+  ports:
+    - protocol: TCP
+      port: 3003
+      targetPort: 3003
+      nodePort: 31003
+  type: NodePort
+
