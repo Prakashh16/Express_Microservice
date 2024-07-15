@@ -7,7 +7,8 @@ const { sequelize } = require('../models');
 const { Profile } = require('../models');   
 
 const app = express();
-const port = process.env.PORT || 3002;  
+const port = process.env.PORT || 3002;
+const serviceName = process.env.SERVICE_NAME || 'UserDataService';  
 
 app.use(express.json());
 
@@ -30,8 +31,8 @@ app.get('/profiles', async (req, res) => {
   }
 });
 
-app.listen(port, async () => {
-  console.log(`UserService listening at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', async () => {
+    console.log(`${serviceName} listening at http://0.0.0.0:${port}`);
   try {
     await sequelize.authenticate();
     console.log('Database connected!');

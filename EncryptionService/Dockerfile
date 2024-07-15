@@ -9,7 +9,7 @@ RUN npm install
 
 COPY . .
 
-COPY database_encryption.sqlite /app/database_auth.sqlite
+COPY database_encryption.sqlite /app/database_encryption.sqlite
 
 EXPOSE 3003
 

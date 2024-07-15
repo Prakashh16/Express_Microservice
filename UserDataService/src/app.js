@@ -28,8 +28,8 @@ app.get('/data', async (req, res) => {
   }
 });
 
-app.listen(port, async () => {
-  console.log(`${serviceName} listening at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', async () => {
+    console.log(`${serviceName} listening at http://0.0.0.0:${port}`);
   try {
     await sequelize.authenticate();
     console.log('Database connected!');

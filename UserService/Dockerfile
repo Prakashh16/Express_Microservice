@@ -1,4 +1,3 @@
-
 FROM node:16
 
 WORKDIR /app
@@ -9,9 +8,8 @@ RUN npm install
 
 COPY . .
 
-COPY database_user.sqlite /app/database_auth.sqlite
+COPY database_user.sqlite /app/database_user.sqlite
 
-EXPOSE 3002
+EXPOSE 3005
 
 CMD ["npm", "start"]
-
