@@ -15,7 +15,8 @@ Docker:
 
 Kubernetes:
 1- Start minikube,
-2- Go in kubernetes folder and run kubectl apply -f .,
-3- kubectl get pods to see all pods are running or not ?,
-4- run minikube ip,
-5- http://<minikube-ip>:<nodeport> replace nodeport with nodeport of each services noted in each service kubernetes yaml and access the application
+2- Replace Docker hub username in each yaml file 
+3- Go in kubernetes folder and run kubectl apply -f .,
+4- kubectl get pods to see all pods are running or not ?,
+5- run minikube ip,
+6- http://<minikube-ip>:<nodeport> replace nodeport with nodeport of each services noted in each service kubernetes yaml and access the application
