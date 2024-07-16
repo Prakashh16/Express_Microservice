@@ -31,10 +31,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: encryption-service
+  name: encryption
 spec:
   selector:
-    app: encryption-service
+    app: encryption
   ports:
     - protocol: TCP
       port: 3003

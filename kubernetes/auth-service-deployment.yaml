@@ -31,10 +31,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: auth-service
+  name: auth
 spec:
   selector:
-    app: auth-service
+    app: auth
   ports:
     - protocol: TCP
       port: 3001

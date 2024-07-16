@@ -31,10 +31,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: user-service
+  name: user
 spec:
   selector:
-    app: user-service
+    app: user
   ports:
     - protocol: TCP
       port: 3002
